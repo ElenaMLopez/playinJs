@@ -1,6 +1,6 @@
 # Tests
 
-Este es el repositorio para la prueba técnica de Javascript de SunMedia. 
+Este es el repositorio para la prueba técnica de Javascript de *. 
 La prueba consta de hasta cuatro test. En cada una de las carpetas que 
 separan los test encontrarás un fichero README.md que explica más detalladamente
 qué es lo que se pide, así como el código asociado a la prueba. 
