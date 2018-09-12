@@ -1,4 +1,4 @@
-# SunMedia JS Tests
+# Tests
 
 Este es el repositorio para la prueba técnica de Javascript de SunMedia. 
 La prueba consta de hasta cuatro test. En cada una de las carpetas que 
