@@ -59,7 +59,7 @@ El código de nuestro script no funciona y necesitamos que se ejecute también
 en este navegador. ¿Sabrías identificar cuál es el problema? ¿Qué solución nos
  propones?
 
-> El navegador internet explores no soporta el método Object.assign(). Para poder solucionarlo sin cambiar el método, se puede utilizar un polifil, tenemos como ejemplo el que se propone en la página de [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign#Polyfill).
+> El navegador internet explorer no soporta el método Object.assign(). Para poder solucionarlo sin cambiar el método, se puede utilizar un polifil, tenemos como ejemplo el que se propone en la página de [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign#Polyfill).
 
 **PS**: No es estrictamente necesario tener Internet Explorer para poder identificar y/o resolver el bug. 
 
