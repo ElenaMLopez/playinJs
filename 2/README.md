@@ -14,12 +14,13 @@ nos devuelve el código es el mismo valor en cada iteración.
 ```
 
  ¿Cuál es el motivo?
- >El motivo es que en el momento en el que se entra en el bucle for, se empieza a ejecutar la función, pero no se para la ejecución del for, por la asincronía de JS, sino que continúa, y al segundo se imprime el valor final de i, que es 5 
+ >El motivo es que en el momento en el que se entra en el bucle for, se empieza a ejecutar la función, pero no se para la ejecución del for, por la asincronía de JS, sino que continúa, y al segundo se imprime el valor final de i, que es 5.
+
 
 2. Sabiendo que el output que buscamos es el que encuentras bajo estas líneas… 
 ¿Cómo solucionarías el fragmento de código para que el output sea el deseado?
 
-```
+```text
     > 0
     > 1
     > 2
@@ -36,3 +37,4 @@ for (var i = 0; i < 5; i++) {
 for (var i = 0; i < 5; i++) {
 setTimeout((x => () => console.log(x))(i), i * 1000)
 }
+```
