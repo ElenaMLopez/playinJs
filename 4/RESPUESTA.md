@@ -6,4 +6,4 @@ Información extraída de [webpack.js.org](https://webpack.js.org/guides/develop
 
 2. Lanzo la aplicación con el live server de VScode y no da error en el puerto 5500.
 
-3. La resolución del ejercicio se encuentra en la carpeta respuesta, donde el archivo [README](./respuesta4/README.md) 
+3. La resolución del ejercicio se encuentra en la carpeta respuesta, donde el archivo [README](./respuesta4/README.md) tiene todas las anotaciones pertinentes.
