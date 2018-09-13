@@ -5,7 +5,8 @@
         console.log(i);
     }, 1000)
   }*/
-  /**En este caso, el resultado devuelto es 5 según se ejecute, y al cabo de un segundo 
+  /** PRIMERA PREGUNTA:
+   * En este caso, el resultado devuelto es 5 según se ejecute, y al cabo de un segundo 
    * devolverá de nuevo 5 puesto que lo que está haciendo ese script, es un bucle for convencional.
    * En el momento del arranque ejecuta el bucle, y cuando llega al método setTimeout, empieza 
    * ejecutarlo. La asincronía de JS no para la ejecución del bucle en este punto, sino que continúa
@@ -13,9 +14,8 @@
    * es 5.
    */
 
-  
-  
-  /** En caso de buscar un print en consola del valor de i, y que su incremento sea cada 
+  /** SEGUNDA PREGUNTA
+   * En caso de buscar un print en consola del valor de i, y que su incremento sea cada 
    * segundo, se plantea esta solución:
    * 1. Declaramos el bucle
    * 2. Se realiza un setTimeout al que se le pasa una función de parámetro x, que a su vez
@@ -29,6 +29,7 @@
   for (var i = 0; i < 5; i++) {
     setTimeout((x => () => console.log(x))(i), i * 1000)
     }
+    
 /** Equivalente en VanillaJs:
  * Para navegadores que no soporten ES6.
  */

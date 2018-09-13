@@ -3,31 +3,31 @@
  * El problema es que en navegadores más antiguos como IE5 esta API no es soportada.
  * Para solventar este problema se me han ocurrido 3 posibles soluciones.
  * El código original es el siguiente:
- * @example
- *  let promise = new Promise((resolve, reject) => {
-			setTimeout(function () {
-					if (Math.round(Math.random()) === 1) {
-							resolve("Success!");
-					} else {
-							reject("Fail!");
-					}
-			}, 1000);
-	  });
-
-		promise
-				.then((successMessage) => {
-						console.log("Yes! " + successMessage);
-				})
-				.catch((failMessage) => {
-						console.log("No! " + failMessage);
-				});
-
  */
+let promise = new Promise((resolve, reject) => {
+		setTimeout(function () {
+				if (Math.round(Math.random()) === 1) {
+						resolve("Success!");
+				} else {
+						reject("Fail!");
+				}
+		}, 1000);
+	});
+
+	promise
+			.then((successMessage) => {
+					console.log("Yes! " + successMessage);
+			})
+			.catch((failMessage) => {
+					console.log("No! " + failMessage);
+			});
+
+
 
 /** Alternativa 1:
-
+*/
 var resultado = setTimeout(function(){
-	resultado = Math.round(Math.random());
+		resultado = Math.round(Math.random());
  
 }, 1000); // Esto hace que el resultado llegue después de un segundo.
 
@@ -57,14 +57,14 @@ function myPromise(resultado, cb){
 }
 myPromise(resultado, cb);
 
-/** Alternativa 2: En este caso se puede como opción realizar un polifill.
+/** Alternativa 2: 
+ * En este caso se puede como opción realizar un polifill.
  * Lo haría de esta forma.
  */
 
 /** En esta sección se comprueba si el navegador tiene soporte para promesas, comenzando por el 
  * comenzando por el supuesto de que sí tiene, matenemos el código original:
  * @example
- * 
  */
 if (window.Promise) {
     let promise = new Promise((resolve, reject) => {
@@ -97,6 +97,7 @@ if (window.Promise) {
 }
 
 /** Alternativa 3:
+ * 
  * Por último, se puede utilizar alguna librería que nos provea de polyfills para IE5 y navegadores
  * antiguos como por ejemplo la de Taylor Hakes :https://github.com/taylorhakes/promise-polyfill/blob/master/src/index.js,
  * Como siempre, la decisión de que opción tomar, depende de las necesidades del proyecto.
