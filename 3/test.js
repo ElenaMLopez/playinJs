@@ -1,22 +1,30 @@
-let promise = new Promise((resolve, reject) => {
-    setTimeout(function () {
-        if (Math.round(Math.random()) === 1) {
-            resolve("Success!");
-        } else {
-            reject("Fail!");
-        }
-    }, 1000);
-});
+/** Respuesta al test_3:
+ * En el código inicial, vemos una gestión de asincronía utilizando la API de promise.
+ * El problema es que en navegadores más antiguos como IE5 esta API no es soportada.
+ * Para solventar este problema se me han ocurrido 3 posibles soluciones.
+ * El código original es el siguiente:
+ * @example
+ *  let promise = new Promise((resolve, reject) => {
+			setTimeout(function () {
+					if (Math.round(Math.random()) === 1) {
+							resolve("Success!");
+					} else {
+							reject("Fail!");
+					}
+			}, 1000);
+	  });
 
-promise
-    .then((successMessage) => {
-        console.log("Yes! " + successMessage);
-    })
-    .catch((failMessage) => {
-        console.log("No! " + failMessage);
-    });
+		promise
+				.then((successMessage) => {
+						console.log("Yes! " + successMessage);
+				})
+				.catch((failMessage) => {
+						console.log("No! " + failMessage);
+				});
 
-// Alternativa:
+ */
+
+/** Alternativa 1:
 
 var resultado = setTimeout(function(){
 	resultado = Math.round(Math.random());
@@ -28,20 +36,20 @@ diferentes opciones que puede tener */
 
 function cb(resultado) {
 	if (resultado === undefined) {
-	console.log('loadin...');
+		console.log('loadin...');
 			setTimeout(function(){
-		function getResultado(){
-			resultado = Math.round(Math.random());
-			cb(resultado);
-					}
+				function getResultado(){
+					resultado = Math.round(Math.random());
+					cb(resultado);
+				}
 					getResultado();
 			}, 1100);
 	
 	} else if (resultado === 1) {
-					console.log('Success! Yes!')
+			console.log('Success! Yes!')
 	} else {
-					console.log('Fail! No!')
-			}
+			console.log('Fail! No!')
+	}
 }
 
 function myPromise(resultado, cb){
@@ -49,7 +57,15 @@ function myPromise(resultado, cb){
 }
 myPromise(resultado, cb);
 
-// Alternativa 2:
+/** Alternativa 2: En este caso se puede como opción realizar un polifill.
+ * Lo haría de esta forma.
+ */
+
+/** En esta sección se comprueba si el navegador tiene soporte para promesas, comenzando por el 
+ * comenzando por el supuesto de que sí tiene, matenemos el código original:
+ * @example
+ * 
+ */
 if (window.Promise) {
     let promise = new Promise((resolve, reject) => {
         setTimeout(function () {
@@ -68,14 +84,21 @@ if (window.Promise) {
         .catch((failMessage) => {
             console.log("No! " + failMessage);
         });
-} else {
+} else { 
+	/** En este punto comienza el polifill, básicamente utilizamos la Api de promise y la hacemos 
+	 * comprensible para el navegador que no la soporta mediante el prototipo de Promise.
+	 */
     Promise.protitype.then = function (success){
 			// Aquí definiría que debe hacer en caso de que tengamos ya el resultado y sea uno (Success mesaje)
 		}
     Promise.prototype.catch = function(error) {
 			// Aquí definiría que debe hacer en caso de que tengamos el resultado y no sea 1 (Fail messaje)
-		}
-
-    
+		}    
 }
+
+/** Alternativa 3:
+ * Por último, se puede utilizar alguna librería que nos provea de polyfills para IE5 y navegadores
+ * antiguos como por ejemplo la de Taylor Hakes :https://github.com/taylorhakes/promise-polyfill/blob/master/src/index.js,
+ * Como siempre, la decisión de que opción tomar, depende de las necesidades del proyecto.
+ */
 
